@@ -51,12 +51,12 @@ def _limited(ip: str) -> bool:
     return False
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def index():
     return FileResponse(STATIC / "index.html")
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health():
     r: Retriever | None = state.get("retriever")
     counts: dict[str, int] = {}
