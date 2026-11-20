@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: darglobal-wasalt-chatbot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false   # set the value in the Render dashboard (secret)
